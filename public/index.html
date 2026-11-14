@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff4d7">
+  <meta name="description" content="A cheerful, kid-friendly English practice buddy.">
+  <title>Quacky English Buddy</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Quacky English Buddy home">
+        <span class="brand-mark">Q!</span>
+        <span><strong>Quacky</strong><small>ENGLISH BUDDY</small></span>
+      </a>
+      <div class="top-actions">
+        <span class="safe-pill"><span class="safe-dot"></span> Friendly practice zone</span>
+        <button id="soundToggle" class="icon-button" type="button" aria-label="Mute voice" title="Mute voice">🔊</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">SPLASH INTO ENGLISH</span>
+          <h1>Big words.<br><span>Little steps.</span></h1>
+          <p>Practise English with Quacky. I’m a little impatient, a lot enthusiastic, and absolutely brilliant at cheering you on. Obviously.</p>
+          <div class="hero-tags"><span>🎤 Speak</span><span>📚 Learn</span><span>⭐ Have fun</span></div>
+        </div>
+        <div class="duck-stage" aria-label="Original cartoon duck mascot">
+          <div class="sunburst"></div>
+          <div class="float-star star-one">✦</div><div class="float-star star-two">✧</div>
+          <div class="speech-pop" id="duckBubble">Ready? Let's quack on!</div>
+          <div class="duck" id="duck">
+            <svg viewBox="0 0 300 300" role="img" aria-label="A cheerful yellow cartoon duck wearing a teal cap">
+              <ellipse cx="153" cy="268" rx="88" ry="13" fill="#d9a84d" opacity=".25"/>
+              <path d="M86 227 Q55 238 48 257 Q76 263 107 246" fill="#f5c43f" stroke="#b77a22" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M206 229 Q237 239 245 257 Q216 263 187 246" fill="#f5c43f" stroke="#b77a22" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M83 191 Q69 132 97 92 Q122 58 173 66 Q227 70 240 126 Q252 177 217 225 Q192 257 137 249 Q97 244 83 191Z" fill="#ffd84f" stroke="#b77a22" stroke-width="6"/>
+              <path d="M105 91 Q115 39 174 44 Q218 46 230 87 Q198 70 174 76 Q133 87 105 91Z" fill="#24a6a1" stroke="#176d70" stroke-width="6"/>
+              <path d="M110 83 Q75 87 66 103 Q101 111 131 91" fill="#24a6a1" stroke="#176d70" stroke-width="6" stroke-linecap="round"/>
+              <path d="M128 125 Q136 112 148 124" fill="none" stroke="#573b28" stroke-width="7" stroke-linecap="round"/>
+              <path d="M185 124 Q197 110 208 123" fill="none" stroke="#573b28" stroke-width="7" stroke-linecap="round"/>
+              <ellipse cx="139" cy="145" rx="8" ry="12" fill="#573b28"/>
+              <ellipse cx="197" cy="144" rx="8" ry="12" fill="#573b28"/>
+              <circle cx="142" cy="141" r="3" fill="white"/><circle cx="200" cy="140" r="3" fill="white"/>
+              <path d="M151 159 Q174 148 203 161 Q184 185 156 178 Q143 174 151 159Z" fill="#f58b35" stroke="#a95522" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M151 160 Q178 166 201 161" fill="none" stroke="#a95522" stroke-width="3"/>
+              <path d="M108 183 Q119 174 129 183" fill="none" stroke="#f29c72" stroke-width="8" stroke-linecap="round" opacity=".8"/>
+              <path d="M210 184 Q221 175 230 183" fill="none" stroke="#f29c72" stroke-width="8" stroke-linecap="round" opacity=".8"/>
+              <path d="M127 235 Q155 250 187 236" fill="none" stroke="#e5ad31" stroke-width="5" stroke-linecap="round"/>
+              <path d="M115 254 L105 267 M137 253 L132 268 M198 252 L204 267" stroke="#e8a02e" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="stage-caption">QUACK-TASTIC LEARNING!</div>
+        </div>
+      </section>
+
+      <section class="practice-grid">
+        <div class="practice-card main-card">
+          <div class="card-heading">
+            <div><span class="eyebrow">YOUR TURN</span><h2>Talk to Quacky</h2></div>
+            <span class="level-chip">🌱 Beginner friendly</span>
+          </div>
+          <p class="instruction">Tap the microphone and say something in English. Or type if you prefer!</p>
+          <div class="conversation" id="conversation" aria-live="polite">
+            <div class="message quacky-message">
+              <div class="avatar">🦆</div>
+              <div class="bubble"><strong>Quacky</strong><p>Well, hello there, word wizard! Tell me your name, ask me a question, or choose a practice game. Come on, come on!</p></div>
+            </div>
+          </div>
+          <div class="talk-controls">
+            <button id="talkButton" class="talk-button" type="button">
+              <span class="mic-icon">🎙️</span><span id="talkLabel">Tap to talk</span>
+            </button>
+            <span class="or-label">OR TYPE</span>
+            <form id="chatForm" class="chat-form">
+              <input id="chatInput" type="text" maxlength="240" autocomplete="off" placeholder="Type a message..." aria-label="Type a message">
+              <button type="submit" aria-label="Send message">➜</button>
+            </form>
+          </div>
+          <div class="status-line" id="statusLine">Microphone is ready when you are.</div>
+          <div class="privacy-note">🔒 This demo does not save your conversations. Speech recognition may be processed by your browser provider.</div>
+        </div>
+
+        <aside class="side-column">
+          <div class="side-card">
+            <div class="side-title"><span>🎯</span><div><h3>Pick a mini-game</h3><p>Quick practice, happy brain!</p></div></div>
+            <div class="game-list">
+              <button class="game-button active" data-game="vocabulary"><span class="game-icon purple">🔤</span><span><strong>Word of the day</strong><small>Learn a new word</small></span><span class="chevron">›</span></button>
+              <button class="game-button" data-game="spelling"><span class="game-icon orange">✏️</span><span><strong>Spell it!</strong><small>Practise spelling</small></span><span class="chevron">›</span></button>
+              <button class="game-button" data-game="quiz"><span class="game-icon green">🧠</span><span><strong>Quick quiz</strong><small>Test what you know</small></span><span class="chevron">›</span></button>
+              <button class="game-button" data-game="conversation"><span class="game-icon blue">💬</span><span><strong>Chat time</strong><small>Practise everyday English</small></span><span class="chevron">›</span></button>
+            </div>
+          </div>
+          <div class="challenge-card">
+            <div class="challenge-top"><span>⭐ TODAY'S CHALLENGE</span><span>1–2 min</span></div>
+            <h3>Describe your favourite animal!</h3>
+            <p>Can you say three sentences about it? Tell Quacky and get a cheerful tip.</p>
+            <button id="challengeButton" type="button">Let's try it <span>→</span></button>
+          </div>
+          <div class="progress-card">
+            <div class="progress-head"><span>🏅 Practice stars</span><strong id="starCount">0 / 5</strong></div>
+            <div class="progress-track"><div id="progressFill"></div></div>
+            <small>Earn a star each time you practise.</small>
+          </div>
+        </aside>
+      </section>
+
+      <section class="tip-strip">
+        <span class="tip-icon">💡</span>
+        <div><strong>Quacky's little tip</strong><p>It's okay to make mistakes. That's how your English gets stronger. Even ducks have to practise their waddling!</p></div>
+      </section>
+    </main>
+    <footer><span>Quacky English Buddy</span><span>Original fan-made learning character · Not affiliated with any film studio or cartoon franchise</span></footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
